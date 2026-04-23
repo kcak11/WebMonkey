@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebMonkey - Custom Script Configuration</title>
+  <link rel="stylesheet" href="options.css">
+  <!-- CodeMirror for syntax highlighting -->
+  <link rel="stylesheet" href="lib/codemirror.min.css">
+  <link rel="stylesheet" href="lib/theme/dracula.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1><img src="icons/icon48.png" width="32" height="32" style="vertical-align: middle;"> WebMonkey</h1>
+    <p class="subtitle">Configure custom JavaScript to run on every webpage</p>
+
+    <div class="section">
+      <h2>Script Execution</h2>
+      <div class="toggle-row">
+        <span class="toggle-label">Enable custom script</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="scriptEnabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="help-text">When enabled, your custom script will run on all pages after they load.</p>
+    </div>
+
+    <div class="section">
+      <h2>Custom JavaScript</h2>
+      <div class="editor-container">
+        <textarea id="scriptEditor" hidden></textarea>
+        <div id="codeEditor"></div>
+      </div>
+      <div id="status" class="status"></div>
+      <div class="btn-row">
+        <button id="saveBtn" class="btn-primary">Save Script</button>
+        <button id="clearBtn" class="btn-secondary">Clear</button>
+      </div>
+      <p class="help-text">Script runs in page context with full DOM access.</p>
+    </div>
+
+    <div class="section">
+      <h2>Examples</h2>
+      <div class="example">
+        <pre>// Remove all images
+document.querySelectorAll('img').forEach(el => el.remove());</pre>
+      </div>
+      <div class="example">
+        <pre>// Change all links to open in new tab
+document.querySelectorAll('a').forEach(a => a.target = '_blank');</pre>
+      </div>
+      <div class="example">
+        <pre>// Add a floating button
+const btn = document.createElement('button');
+btn.textContent = '🤖 Click Me';
+btn.style.cssText = 'position:fixed;top:10px;right:10px;zIndex:9999;';
+document.body.appendChild(btn);</pre>
+      </div>
+      <div class="example">
+        <pre>// Highlight all links
+document.querySelectorAll('a').forEach(a => {
+  a.style.background = 'yellow';
+});</pre>
+      </div>
+    </div>
+
+    <div class="section danger-zone">
+      <h2>⚠️ Danger Zone</h2>
+      <p class="help-text">Reset all settings and clear your script.</p>
+      <button id="resetBtn" class="btn-secondary">Reset to Defaults</button>
+    </div>
+  </div>
+
+  <!-- CodeMirror for syntax highlighting -->
+  <script src="lib/codemirror.min.js"></script>
+  <script src="lib/javascript.min.js"></script>
+  <script src="options.js"></script>
+</body>
+
+</html>

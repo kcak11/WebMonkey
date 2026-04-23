@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1 span {
+  font-size: 28px;
+}
+
+.subtitle {
+  color: #888;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.section {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #e94560;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.toggle-label {
+  font-size: 14px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 22px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  transition: 0.3s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #e94560;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.editor-container {
+  position: relative;
+}
+
+#codeEditor {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* CodeMirror customization */
+.CodeMirror {
+  height: 300px;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #0f0f23;
+}
+
+.CodeMirror-gutters {
+  background: #0f0f23;
+  border-right: 1px solid #333;
+}
+
+.CodeMirror-linenumber {
+  color: #666;
+}
+
+.CodeMirror-cursor {
+  border-left: 2px solid #e94560;
+}
+
+.CodeMirror-selected {
+  background: rgba(233, 69, 96, 0.3) !important;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: #e94560;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff6b6b;
+}
+
+.btn-secondary {
+  background: #0f3460;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #1a4a7a;
+}
+
+.status {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  display: none;
+}
+
+.status.success {
+  display: block;
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid #81c784;
+}
+
+.status.error {
+  display: block;
+  background: rgba(244, 67, 54, 0.2);
+  color: #e57373;
+  border: 1px solid #e57373;
+}
+
+.help-text {
+  color: #888;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.example {
+  background: #0f0f23;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 12px;
+  margin-top: 8px;
+  overflow-x: auto;
+}
+
+.example pre {
+  color: #81c784;
+}
+
+.danger-zone {
+  border: 1px solid #e94560;
+}
+
+.danger-zone h2 {
+  color: #e94560;
+}
+
+.danger-zone .help-text {
+  margin-bottom: 16px;
+}
